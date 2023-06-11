@@ -2,9 +2,8 @@ const express = require("express");
 const app = express();
 const mongoose = require('mongoose')
 const dotenv = require('dotenv')
+const cors = require('cors')
 const userRouter = require('./routers/user-router')
-//const port = process.env.PORT || 5001;
-
 
 
 const connect = async () => {
@@ -15,9 +14,8 @@ const connect = async () => {
       .then(() => console.log(` 🍃 mongo-db connected`))
       .catch(console.log)
   }
-
-
   connect()
+  app.use(cors())
   app.use(express.json());
   app.use("/api",userRouter)
   app.listen(process.env.port,()=> {console.log("Login successfully")})
