@@ -5,7 +5,6 @@ const dotenv = require('dotenv')
 const cors = require('cors')
 const userRouter = require('./routers/user-router')
 
-
 const connect = async () => {
     return mongoose
       .connect(
